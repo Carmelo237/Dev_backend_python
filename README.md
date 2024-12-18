@@ -1,7 +1,6 @@
 # Dev_backend_python
 
-![Description de l'image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.abime-concept.com%2F2023%2F03%2F13%2Flavenir-du-commerce-en-ligne%2F&psig=AOvVaw0_2yYGU0UpV4fS2Rm32Yps&ust=1734617031770000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNiOv5i-sYoDFQAAAAAdAAAAABAJ![image](https://github.com/user-attachments/assets/61f76bef-a306-4bb1-92ad-be62fc718775)
-)
+![Description de l'image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.abime-concept.com%2F2023%2F03%2F13%2Flavenir-du-commerce-en-ligne%2F&psig=AOvVaw0_2yYGU0UpV4fS2Rm32Yps&ust=1734617031770000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNiOv5i-sYoDFQAAAAAdAAAAABAJ)
 
 
 
