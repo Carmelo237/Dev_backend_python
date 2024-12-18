@@ -12,7 +12,7 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 ## Les KPI'S
 
 - [Métriques de Ventes](#métriques-de-ventes)
-  - [Revenu total](#revenu-total)
+  - [Total des ventes & Total des bénéfices](#Total-des-ventes-&-Total-des-bénéfices)
   - [Nombre total de commandes](#nombre-total-de-commandes)
   - [Panier moyen](#panier-moyen)
   - [Nombre total de produits vendus](#nombre-total-de-produits-vendus)
