@@ -96,7 +96,6 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 
 ### Flux de données
 
-1. **Collecte des données**
-2. **Traitement Backend**
+**Collecte des données et Traitement Backend**
 = Avec python
 
