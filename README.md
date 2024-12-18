@@ -41,3 +41,5 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
   - [Analyse des distances de livraison](#analyse-des-distances-de-livraison)
 
 ## Construit avec
+
+![image](https://github.com/user-attachments/assets/36467d00-9c65-4999-b9f4-87980d54b9f5)
