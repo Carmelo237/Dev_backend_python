@@ -42,4 +42,12 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 
 ## Construit avec
 
-![image](https://github.com/user-attachments/assets/6b61f64b-cd3d-4b41-b29c-6b95ad287bcf)
+## Built With
+
+- ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) - [MongoDB](https://www.mongodb.com/) - Base de données NoSQL
+- ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white) - [FastAPI](https://fastapi.tiangolo.com/) - Framework API REST
+- ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white) - [Streamlit](https://streamlit.io/) - Framework de visualisation de données
+- ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) - [Python](https://www.python.org/) - Langage de programmation
+- ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white) - [Pandas](https://pandas.pydata.org/) - Manipulation de données
+- ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white) - [Plotly](https://plotly.com/) - Création de graphiques
+
