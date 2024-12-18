@@ -55,7 +55,7 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 1. **MongoDB** (Base de données)
 - **Rôle** : Stockage des données NoSQL
 - **Utilisation** : 
-  - Stocke les collections : customers, orders, products, locations
+  - Stock les collections : customers, orders, products, locations
   - Permet des requêtes complexes et agrégations
   - Offre de bonnes performances pour les grands volumes de données
   - Flexible pour les schémas de données évolutifs
@@ -66,7 +66,7 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
   - Performances élevées (asynchrone)
   - Documentation automatique (Swagger/OpenAPI)
   - Validation des données intégrée
-  - Typage fort avec Pydantic
+
 
 
 3. **PyMongo** (Driver MongoDB pour Python)
@@ -74,7 +74,7 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 - **Utilisation** :
   - Exécute les requêtes MongoDB
   - Gère les connexions à la base
-  - Transforme les données BSON en objets Python
+  
 
 ### Architecture Frontend
 
@@ -89,9 +89,9 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 2. **Plotly** (Bibliothèque de visualisation)
 - **Rôle** : Création de graphiques interactifs
 - **Types de graphiques** :
-  - Graphiques en barres pour les revenus
-  - Camemberts pour les distributions
-  - Graphiques linéaires pour les tendances
+  - Graphiques en barres 
+  - Camemberts 
+  - Graphiques linéaires 
   - Cartes pour les données géographiques
 
 ### Flux de données
