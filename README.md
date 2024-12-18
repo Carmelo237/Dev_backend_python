@@ -42,4 +42,4 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 
 ## Construit avec
 
-![image](https://github.com/user-attachments/assets/36467d00-9c65-4999-b9f4-87980d54b9f5 ) 
+![image](https://github.com/user-attachments/assets/6b61f64b-cd3d-4b41-b29c-6b95ad287bcf)
