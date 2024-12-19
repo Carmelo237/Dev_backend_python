@@ -120,4 +120,8 @@ Ces commandes permettent de créer, basculer sur une branche, ajouter des modifi
 ## Installation⚙️
   ```bash
 pip install pymongo
-pip install  pandas 
+pip install  pandas
+pip install  fastapi
+pip install  uvicorn
+pip install  streamlit
+pip install matplotlib.pyplot
