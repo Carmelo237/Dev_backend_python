@@ -111,11 +111,13 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 
 ###Description du projet
 
-Création des différentes branches de travail 
+⚠️ **Utilisation avancée (si vous utilisez git/github)**
 
-git branch
-git checkout "nom-de-la-branche"
-git add. (ajouter les nouveaux fichiers ou les fichiers modifiés)
-git commit -m ("message de commit pour indiquer l'ajout ou la modification)
-git push origin <nom-de-la-branche>
-installation des bibliothèques 
+### Intégrer les mises à jour du projet original
+
+Cette étape n'est pas à effectuer à chaque fois mais quand un enseignant vous le demande. Elle va permettre de mettre à jour votre copie locale du projet à partir du dépôt `github` original.
+
+1. **Créer un lien nommé `upstream` vers le dépôt d'origine**
+   ```bash
+   git remote add upstream https://github.com/uvsq-info/l1-python
+
