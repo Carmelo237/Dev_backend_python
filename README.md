@@ -142,7 +142,7 @@ mongoimport --db ecommerce --collection orders --file Orders.csv
 
 2. **Traitement Backend**
 ```python
-# Exemple de pipeline MongoDB pour les ventes
+# Exemple de pipeline MongoDB avec une requête d'agrégation pour relier deux collections ; Orders & Customers
 @app.get("/orders-with-details")
 def get_orders_with_details():
     pipeline = [
