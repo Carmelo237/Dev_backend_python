@@ -50,90 +50,80 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 - ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white) - [Pandas](https://pandas.pydata.org/) - Manipulation de données
 - ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white) - [Plotly](https://plotly.com/) - Création de graphiques
 
-### Architecture Backend
-
-1. **MongoDB** (Base de données)
-- **Rôle** : Stockage des données NoSQL
-- **Utilisation** : 
-  - Stock les collections : customers, orders, products, locations
-  - Permet des requêtes complexes et agrégations
-  - Offre de bonnes performances pour les grands volumes de données
-  - Flexible pour les schémas de données évolutifs
-
-2. **FastAPI** (Framework API)
-- **Rôle** : Serveur d'API REST
-- **Avantages** :
-  - Performances élevées (asynchrone)
-  - Documentation automatique (Swagger/OpenAPI)
-  - Validation des données intégrée
 
 
 
-3. **PyMongo** (Driver MongoDB pour Python)
-- **Rôle** : Connection Python-MongoDB
-- **Utilisation** :
-  - Exécute les requêtes MongoDB
-  - Gère les connexions à la base
-  
+# Comparaison des Architectures Web pour l'Analytics E-commerce
 
-### Architecture Frontend
+## Architecture Actuelle du Projet
 
-1. **Streamlit** (Framework de dashboard)
-- **Rôle** : Interface utilisateur web
-- **Avantages** :
-  - Création rapide d'interfaces
-  - Widgets interactifs intégrés
-  - Mise à jour en temps réel
-  - Intégration facile avec Pandas/Plotly
+### Backend
+| Composant | Technologie | Rôle | Avantages |
+|-----------|-------------|------|-----------|
+| Base de données | MongoDB | Stockage NoSQL | • Flexibilité du schéma<br>• Bonnes performances en lecture<br>• Facilité des requêtes complexes |
+| API Framework | FastAPI | Serveur API REST | • Performance élevée<br>• Documentation automatique<br>• Support async natif |
+| Serveur ASGI | Uvicorn | Serveur d'application | • Très performant<br>• Support async<br>• Rechargement automatique |
+| ORM/Driver | PyMongo | Connexion DB | • Interface native MongoDB<br>• Support async<br>• Simple d'utilisation |
 
-2. **Plotly** (Bibliothèque de visualisation)
-- **Rôle** : Création de graphiques interactifs
-- **Types de graphiques** :
-  - Graphiques en barres 
-  - Camemberts 
-  - Graphiques linéaires 
-  - Cartes pour les données géographiques
+### Frontend
+| Composant | Technologie | Rôle | Avantages |
+|-----------|-------------|------|-----------|
+| Framework UI | Streamlit | Interface utilisateur | • Développement rapide<br>• Widgets prêts à l'emploi<br>• Intégration Python native |
+| Visualisation | Plotly | Graphiques | • Interactivité<br>• Nombreux types de graphiques<br>• Personnalisation poussée |
+| HTTP Client | Requests | Appels API | • Simple d'utilisation<br>• Standard de facto<br>• Bonne documentation |
 
-### Flux de données
+## Architectures Alternatives
 
-# Comparaison des Stacks Technologiques
+### Option 1: Stack Entreprise
 
-## Stack Actuelle du Projet
+#### Backend
+| Composant | Technologie | Rôle | Avantages |
+|-----------|-------------|------|-----------|
+| Base de données | PostgreSQL | SGBD relationnel | • ACID compliant<br>• Mature et stable<br>• Support JSON natif |
+| API Framework | Django REST | Framework complet | • Écosystème riche<br>• Admin interface<br>• Sécurité robuste |
+| Serveur WSGI | Gunicorn | Serveur production | • Stable<br>• Facile à configurer<br>• Performant |
+| ORM | Django ORM | Couche d'abstraction DB | • Intégration native<br>• Migrations automatiques<br>• Requêtes puissantes |
 
-| Couche | Composant | Technologie | Rôle | Avantages |
-|--------|-----------|-------------|------|-----------|
-| Backend | Base de données | MongoDB | Stockage NoSQL | • Flexibilité du schéma<br>• Bonnes performances en lecture<br>• Requêtes complexes faciles |
-| Backend | API Framework | FastAPI | Serveur API REST | • Haute performance<br>• Documentation auto (Swagger)<br>• Support async natif |
-| Backend | Serveur | Uvicorn | Serveur ASGI | • Très performant<br>• Rechargement auto<br>• Simple à configurer |
-| Frontend | Interface | Streamlit | Dashboard UI | • Développement rapide<br>• Widgets intégrés<br>• Interface Python native |
-| Frontend | Visualisation | Plotly | Graphiques | • Interactif<br>• Nombreux graphiques<br>• Personnalisable |
+#### Frontend
+| Composant | Technologie | Rôle | Avantages |
+|-----------|-------------|------|-----------|
+| Framework UI | Dash | Application web | • Composants professionnels<br>• Hautement personnalisable<br>• Basé sur React |
+| Visualisation | Bokeh | Graphiques avancés | • Visualisations complexes<br>• Grande interactivité<br>• Support grands volumes |
+| HTTP Client | Axios | Appels API | • Promesses<br>• Intercepteurs<br>• Gestion erreurs avancée |
 
-## Alternatives Possibles
+### Option 2: Stack Microservices
+
+#### Backend
+| Composant | Technologie | Rôle | Avantages |
+|-----------|-------------|------|-----------|
+| Base de données | Cassandra | DB distribuée | • Scalabilité horizontale<br>• Haute disponibilité<br>• Performances en écriture |
+| API Framework | Flask | Microservices | • Léger<br>• Flexible<br>• Simple à déployer |
+| Serveur WSGI | Hypercorn | Serveur HTTP/2 | • Support HTTP/2<br>• TLS avancé<br>• Compatible ASGI/WSGI |
+| ORM/Driver | SQLAlchemy | ORM flexible | • Support multi-DB<br>• Performances<br>• Flexibilité |
+
+#### Frontend
+| Composant | Technologie | Rôle | Avantages |
+|-----------|-------------|------|-----------|
+| Framework UI | Gradio | Interface utilisateur | • Simple<br>• Rapide à déployer<br>• Interface moderne |
+| Visualisation | Altair | Graphiques déclaratifs | • Syntaxe élégante<br>• Basé sur Vega-Lite<br>• Intégration facile |
+| HTTP Client | aiohttp | Appels async | • Async/await<br>• Performances<br>• WebSocket support |
+
+## Cas d'utilisation recommandés
+
+### Architecture Actuelle
+- Startups et projets moyens
+- Besoin de développement rapide
+- Équipe Python-centric
+- Data science et analytics
 
 ### Stack Entreprise
-
-| Couche | Composant | Technologie | Rôle | Avantages |
-|--------|-----------|-------------|------|-----------|
-| Backend | Base de données | PostgreSQL | SGBD relationnel | • Transactions ACID<br>• Mature et stable<br>• Support JSON |
-| Backend | API Framework | Django REST | Framework web | • Écosystème complet<br>• Admin inclus<br>• Sécurité robuste |
-| Backend | Serveur | Gunicorn | Serveur WSGI | • Production-ready<br>• Performant<br>• Configurable |
-| Frontend | Interface | Dash | Application web | • Pro-grade<br>• Composants React<br>• Hautement configurable |
-| Frontend | Visualisation | Bokeh | Graphiques avancés | • Interactivité poussée<br>• Grands volumes<br>• Personnalisation fine |
+- Grandes entreprises
+- Applications critiques
+- Besoin de transactions
+- Équipes importantes
 
 ### Stack Microservices
-
-| Couche | Composant | Technologie | Rôle | Avantages |
-|--------|-----------|-------------|------|-----------|
-| Backend | Base de données | Cassandra | DB distribuée | • Scalabilité horizontale<br>• Haute disponibilité<br>• Performance en écriture |
-| Backend | API Framework | Flask | Microservices | • Léger<br>• Flexible<br>• Simple |
-| Backend | Serveur | Hypercorn | Serveur HTTP/2 | • Support HTTP/2<br>• TLS avancé<br>• Compatible ASGI/WSGI |
-| Frontend | Interface | Gradio | UI simple | • Rapide à déployer<br>• Interface moderne<br>• Intégration ML |
-| Frontend | Visualisation | Altair | Graphiques déclaratifs | • Syntaxe élégante<br>• Vega-Lite<br>• Intégration facile |
-
-## Guide de Choix
-
-| Stack | Cas d'Usage | Points Forts |
-|-------|-------------|--------------|
-| Actuelle | • Startups<br>• Projets moyens<br>• Data science | • Développement rapide<br>• Focus Python<br>• Flexible |
-| Entreprise | • Grandes entreprises<br>• Applications critiques | • Robuste<br>• Sécurisé<br>• Maintenable |
-| Microservices | • Architecture distribuée<br>• Forte charge | • Scalable<br>• Modulaire<br>• Performant |
+- Architecture distribuée
+- Forte charge
+- Besoin de scalabilité
+- Services indépendants
