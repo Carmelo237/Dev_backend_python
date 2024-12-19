@@ -96,6 +96,44 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 
 ### Flux de données
 
-**Collecte des données et Traitement Backend**
-= Avec python
+# Comparaison des Stacks Technologiques
 
+## Stack Actuelle du Projet
+
+| Couche | Composant | Technologie | Rôle | Avantages |
+|--------|-----------|-------------|------|-----------|
+| Backend | Base de données | MongoDB | Stockage NoSQL | • Flexibilité du schéma<br>• Bonnes performances en lecture<br>• Requêtes complexes faciles |
+| Backend | API Framework | FastAPI | Serveur API REST | • Haute performance<br>• Documentation auto (Swagger)<br>• Support async natif |
+| Backend | Serveur | Uvicorn | Serveur ASGI | • Très performant<br>• Rechargement auto<br>• Simple à configurer |
+| Frontend | Interface | Streamlit | Dashboard UI | • Développement rapide<br>• Widgets intégrés<br>• Interface Python native |
+| Frontend | Visualisation | Plotly | Graphiques | • Interactif<br>• Nombreux graphiques<br>• Personnalisable |
+
+## Alternatives Possibles
+
+### Stack Entreprise
+
+| Couche | Composant | Technologie | Rôle | Avantages |
+|--------|-----------|-------------|------|-----------|
+| Backend | Base de données | PostgreSQL | SGBD relationnel | • Transactions ACID<br>• Mature et stable<br>• Support JSON |
+| Backend | API Framework | Django REST | Framework web | • Écosystème complet<br>• Admin inclus<br>• Sécurité robuste |
+| Backend | Serveur | Gunicorn | Serveur WSGI | • Production-ready<br>• Performant<br>• Configurable |
+| Frontend | Interface | Dash | Application web | • Pro-grade<br>• Composants React<br>• Hautement configurable |
+| Frontend | Visualisation | Bokeh | Graphiques avancés | • Interactivité poussée<br>• Grands volumes<br>• Personnalisation fine |
+
+### Stack Microservices
+
+| Couche | Composant | Technologie | Rôle | Avantages |
+|--------|-----------|-------------|------|-----------|
+| Backend | Base de données | Cassandra | DB distribuée | • Scalabilité horizontale<br>• Haute disponibilité<br>• Performance en écriture |
+| Backend | API Framework | Flask | Microservices | • Léger<br>• Flexible<br>• Simple |
+| Backend | Serveur | Hypercorn | Serveur HTTP/2 | • Support HTTP/2<br>• TLS avancé<br>• Compatible ASGI/WSGI |
+| Frontend | Interface | Gradio | UI simple | • Rapide à déployer<br>• Interface moderne<br>• Intégration ML |
+| Frontend | Visualisation | Altair | Graphiques déclaratifs | • Syntaxe élégante<br>• Vega-Lite<br>• Intégration facile |
+
+## Guide de Choix
+
+| Stack | Cas d'Usage | Points Forts |
+|-------|-------------|--------------|
+| Actuelle | • Startups<br>• Projets moyens<br>• Data science | • Développement rapide<br>• Focus Python<br>• Flexible |
+| Entreprise | • Grandes entreprises<br>• Applications critiques | • Robuste<br>• Sécurisé<br>• Maintenable |
+| Microservices | • Architecture distribuée<br>• Forte charge | • Scalable<br>• Modulaire<br>• Performant |
