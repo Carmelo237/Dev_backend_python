@@ -74,8 +74,6 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 
 ## Architectures Alternatives
 
-### Option 1: Stack Entreprise
-
 #### Backend
 | Composant | Technologie | Rôle | Avantages |
 |-----------|-------------|------|-----------|
