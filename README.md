@@ -119,19 +119,19 @@ Travailler avec des branches Git
 
 Ces commandes permettent de créer, basculer sur une branche, ajouter des modifications, les valider et les pousser vers un dépôt distant.
 
-1. **Créer une nouvelle branche ou basculer sur une branche existante**
+1. Créer une nouvelle branche ou basculer sur une branche existante**
    ```bash
    git branch <nom-de-la-branche>
    git checkout <nom-de-la-branche>
 
-2. **Ajouter les nouveaux fichiers ou fichiers modifiés
+2. Ajouter les nouveaux fichiers ou fichiers modifiés
     ```bash
     git add 
 
-3. **Valider les changements avec un message de commit
+3. Valider les changements avec un message de commit
    ```bash
    git commit -m "Message de commit pour indiquer l'ajout ou la modification »
 
-4. **Pousser les modifications vers le dépôt distant
+4. Pousser les modifications vers le dépôt distant
    ```bash
    git push origin <nom-de-la-branche>
