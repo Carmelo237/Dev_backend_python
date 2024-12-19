@@ -125,3 +125,30 @@ pip install  fastapi
 pip install  uvicorn
 pip install  streamlit
 pip install matplotlib.pyplot
+
+
+
+**##Running Tests
+
+To run tests, run the following command
+
+  yarn test test
+🏃 Run Locally
+
+Clone the project
+
+  git clone https://github.com/Louis3797/awesome-readme-template.git
+Go to the project directory
+
+  cd my-project
+Install dependencies
+
+  yarn install
+Start the server
+
+  yarn start
+🚩 Deployment
+
+To deploy this project run
+
+  yarn deploy
