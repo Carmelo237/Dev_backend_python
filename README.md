@@ -109,13 +109,14 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 | HTTP Client | aiohttp | Appels async | • Async/await<br>• Performances<br>• WebSocket support |
 
 
-Description du projet
 
-Pré-requis
+#Description du projet
+
+##Pré-requis
 
 ⚠️ **Utilisation avancée (Git - Gestion des branches)**
 
-### Travailler avec des branches Git
+Travailler avec des branches Git
 
 Ces commandes permettent de créer, basculer sur une branche, ajouter des modifications, les valider et les pousser vers un dépôt distant.
 
