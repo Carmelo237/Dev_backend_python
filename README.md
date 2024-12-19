@@ -107,5 +107,3 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 | Framework UI | Gradio | Interface utilisateur | • Simple<br>• Rapide à déployer<br>• Interface moderne |
 | Visualisation | Altair | Graphiques déclaratifs | • Syntaxe élégante<br>• Basé sur Vega-Lite<br>• Intégration facile |
 | HTTP Client | aiohttp | Appels async | • Async/await<br>• Performances<br>• WebSocket support |
-
-
