@@ -91,22 +91,6 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 | Visualisation | Bokeh | Graphiques avancés | • Visualisations complexes<br>• Grande interactivité<br>• Support grands volumes |
 | HTTP Client | Axios | Appels API | • Promesses<br>• Intercepteurs<br>• Gestion erreurs avancée |
 
-### Option 2: Stack Microservices
-
-#### Backend
-| Composant | Technologie | Rôle | Avantages |
-|-----------|-------------|------|-----------|
-| Base de données | Cassandra | DB distribuée | • Scalabilité horizontale<br>• Haute disponibilité<br>• Performances en écriture |
-| API Framework | Flask | Microservices | • Léger<br>• Flexible<br>• Simple à déployer |
-| Serveur WSGI | Hypercorn | Serveur HTTP/2 | • Support HTTP/2<br>• TLS avancé<br>• Compatible ASGI/WSGI |
-| ORM/Driver | SQLAlchemy | ORM flexible | • Support multi-DB<br>• Performances<br>• Flexibilité |
-
-#### Frontend
-| Composant | Technologie | Rôle | Avantages |
-|-----------|-------------|------|-----------|
-| Framework UI | Gradio | Interface utilisateur | • Simple<br>• Rapide à déployer<br>• Interface moderne |
-| Visualisation | Altair | Graphiques déclaratifs | • Syntaxe élégante<br>• Basé sur Vega-Lite<br>• Intégration facile |
-| HTTP Client | aiohttp | Appels async | • Async/await<br>• Performances<br>• WebSocket support |
 
 
 
