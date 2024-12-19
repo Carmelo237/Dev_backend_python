@@ -72,7 +72,7 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 | Visualisation | Plotly | Graphiques | • Interactivité<br>• Nombreux types de graphiques<br>• Personnalisation poussée |
 | HTTP Client | Requests | Appels API | • Simple d'utilisation<br>• Standard de facto<br>• Bonne documentation |
 
-## Architectures Alternatives
+## Architecture Alternative
 
 #### Backend
 | Composant | Technologie | Rôle | Avantages |
