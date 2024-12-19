@@ -158,7 +158,7 @@ def get_orders_with_details():
    ( avec Streamlit)
 
 
-## Deployment🪄
+## Déploiement🪄
 ```python
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
