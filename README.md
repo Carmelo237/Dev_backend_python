@@ -109,9 +109,9 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 | HTTP Client | aiohttp | Appels async | • Async/await<br>• Performances<br>• WebSocket support |
 
 
-#Description du projet
+Description du projet
 
-#Pré-requis
+Pré-requis
 
 ⚠️ **Utilisation avancée (Git - Gestion des branches)**
 
