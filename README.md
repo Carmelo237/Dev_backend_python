@@ -107,3 +107,15 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 | Framework UI | Gradio | Interface utilisateur | • Simple<br>• Rapide à déployer<br>• Interface moderne |
 | Visualisation | Altair | Graphiques déclaratifs | • Syntaxe élégante<br>• Basé sur Vega-Lite<br>• Intégration facile |
 | HTTP Client | aiohttp | Appels async | • Async/await<br>• Performances<br>• WebSocket support |
+
+
+###Description du projet
+
+Création des différentes branches de travail 
+
+git branch
+git checkout "nom-de-la-branche"
+git add. (ajouter les nouveaux fichiers ou les fichiers modifiés)
+git commit -m ("message de commit pour indiquer l'ajout ou la modification)
+git push origin <nom-de-la-branche>
+installation des bibliothèques 
