@@ -110,9 +110,9 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 
 
 
-#Description du projet
+## Descrption du projet
 
-##Pré-requis
+## Pré-requis‼️ 
 
 ⚠️ **Utilisation avancée (Git - Gestion des branches)**
 
