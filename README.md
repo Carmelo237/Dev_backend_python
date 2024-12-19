@@ -128,7 +128,34 @@ pip install matplotlib.pyplot
 
 ```
 
-## Running Tests🧪
+
+### Flux de données📥
+
+1. **Collecte des données**
+
+# Importation des CSV dans MongoDB
+```python
+mongoimport --db ecommerce --collection customers --file Customers.csv
+mongoimport --db ecommerce --collection orders --file Orders.csv
+# etc...
+```
+
+2. **Traitement Backend**
+```python
+# Exemple de pipeline MongoDB pour les ventes
+@app.get("/orders-with-details")
+def get_orders_with_details():
+    pipeline = [
+        {
+            '$lookup': {
+                'from': 'Customers',
+                'localField': 'Customer ID',
+                'foreignField': 'Customer ID',
+                'as': 'CustomerDetails'
+            }
+```
+3. **Affichage Frontend**
+   ( avec Streamlit)
 
 
 
