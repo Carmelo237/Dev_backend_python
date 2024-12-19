@@ -135,7 +135,4 @@ Ces commandes permettent de créer, basculer sur une branche, ajouter des modifi
 4. Pousser les modifications vers le dépôt distant
    ```bash
    git push origin <nom-de-la-branche>
-
-
-
-⚙️ Installation
+⚙️ **Installation
