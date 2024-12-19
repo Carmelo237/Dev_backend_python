@@ -6,136 +6,94 @@ import plotly.express as px
 # Base API URL
 API_URL = "http://localhost:8000"
 
-# Set Streamlit Page Config
-st.set_page_config(page_title="E-commerce Dashboard", layout="wide")
+# Streamlit Page Config
+st.set_page_config(page_title="E-commerce KPI Dashboard", layout="wide")
 
 # Title
 st.title("📊 E-commerce KPI Dashboard")
 
-# Sidebar for Navigation
-menu = st.sidebar.selectbox(
-    "Select a KPI",
-    [
-        "Orders with Details",
-        "Total Sales",
-        "Total Profits",
-        "Total Orders",
-        "Average Sales per Order",
-        "Total Quantity",
-        "Total Clients",
-        "Orders by Customers",
-        "Average Orders per Customer",
-        "Retention by Customers",
-        "Quantity per Product",
-        "Total Orders per Product",
-        "Revenue by Product"
-    ]
-)
+# Sidebar Filters
+years = requests.get(f"{API_URL}/years").json()
+selected_year = st.sidebar.selectbox("Select Year", ["All"] + years)
 
-def fetch_data(endpoint):
+def fetch_data(endpoint, params=None):
     try:
-        response = requests.get(f"{API_URL}/{endpoint}", timeout=60)  # Increased timeout to 60 seconds
+        response = requests.get(f"{API_URL}/{endpoint}", params=params, timeout=30)
         response.raise_for_status()
         return response.json()
-    except requests.exceptions.Timeout:
-        st.error(f"Error: Request to {endpoint} timed out.")
-    except requests.exceptions.ConnectionError:
-        st.error(f"Error: Unable to connect to FastAPI server at {API_URL}")
     except requests.exceptions.RequestException as e:
         st.error(f"Error fetching data from {endpoint}: {e}")
-    return []
+        return []
 
 
-# Dashboard UI Logic
+# Display Metrics
 with st.spinner("Fetching data..."):
-    if menu == "Orders with Details":
-        data = fetch_data("orders-with-details")
-        df = pd.DataFrame(data)
-        st.dataframe(df)
+    # Create Layout
+    col1, col2, col3 = st.columns(3)
+    col4, col5, col6 = st.columns(3)
 
-    elif menu == "Total Sales":
-        data = fetch_data("total_sales")
-        total_sales = data[0].get("totalSales", 0) if data else 0
-        st.metric("💰 Total Sales", f"${total_sales:,.2f}")
+    # Fetch Data for KPIs
+    total_sales = fetch_data("total_sales", {"year": selected_year if selected_year != "All" else None})
+    total_profits = fetch_data("total_profits", {"year": selected_year if selected_year != "All" else None})
+    total_orders = fetch_data("total_orders", {"year": selected_year if selected_year != "All" else None})
+    total_quantity = fetch_data("total_quantity", {"year": selected_year if selected_year != "All" else None})
+    total_clients = fetch_data("total_client", {"year": selected_year if selected_year != "All" else None})
+    avg_orders_by_customers = fetch_data("average_orders_by_customers", {"year": selected_year if selected_year != "All" else None})
 
-    elif menu == "Total Profits":
-        data = fetch_data("total_profits")
-        total_profits = data[0].get("totalProfit", 0) if data else 0
-        st.metric("💸 Total Profits", f"${total_profits:,.2f}")
+    # Display KPIs
+    col1.metric("💰 Total Sales", f"${total_sales[0].get('totalSales', 0):,.2f}" if total_sales else "N/A")
+    col2.metric("💸 Total Profits", f"${total_profits[0].get('totalProfit', 0):,.2f}" if total_profits else "N/A")
+    col3.metric("🛒 Total Orders", total_orders[0].get("Order ID", 0) if total_orders else "N/A")
+    col4.metric("📦 Total Quantity", total_quantity[0].get("totalQuantity", 0) if total_quantity else "N/A")
+    col5.metric("👥 Total Clients", total_clients[0].get("Customers ID", 0) if total_clients else "N/A")
+    col6.metric("📈 Avg Orders/Customer", f"{avg_orders_by_customers[0].get('averageOrdersPerCustomer', 0):.2f}" if avg_orders_by_customers else "N/A")
 
-    elif menu == "Total Orders":
-        data = fetch_data("total_orders")
-        total_orders = data[0].get("Order ID", 0)
-        st.metric("🛒 Total Orders", total_orders)
+    # Charts Section
+    st.subheader("📊 Data Visualizations")
 
-    elif menu == "Average Sales per Order":
-        data = fetch_data("average_sales")
-        avg_sales = data[0].get("averageSalesPerOrder", 0)
-        st.metric("📊 Average Sales per Order", f"${avg_sales:,.2f}")
+    # Revenue by Category
+    revenue_by_category = fetch_data("revenue_by_category", {"year": selected_year if selected_year != "All" else None})
+    if revenue_by_category:
+        df = pd.DataFrame(revenue_by_category)
+        fig = px.bar(df, x="_id", y="totalSales", title="Revenue by Category", color="totalSales")
+        st.plotly_chart(fig, use_container_width=True)
 
-    elif menu == "Total Quantity":
-        data = fetch_data("total_quantity")
-        total_quantity = data[0].get("totalQuantity", 0)
-        st.metric("📦 Total Quantity Sold", total_quantity)
+    total_orders_by_category = fetch_data("total_orders_by_category", {"year": selected_year if selected_year != "All" else None})
+    if total_orders_by_category:
+        df = pd.DataFrame(total_orders_by_category)
+        fig = px.bar(df, x="_id", y="totalOrders", title="Total Orders by Category", color="totalOrders")
+        st.plotly_chart(fig, use_container_width=True)
 
-    elif menu == "Total Clients":
-        data = fetch_data("total_client")
-        total_clients = data[0].get("Customers ID", 0)
-        st.metric("👥 Total Clients", total_clients)
+    quantity_by_category = fetch_data("quantity_by_category", {"year": selected_year if selected_year != "All" else None})
+    if quantity_by_category:
+        df = pd.DataFrame(quantity_by_category)
+        fig = px.bar(df, x="_id", y="totalQuantity", title="Quantity by Category", color="totalQuantity")
+        st.plotly_chart(fig, use_container_width=True)
 
-    elif menu == "Orders by Customers":
-        data = fetch_data("orders_by_customers")
-        df = pd.DataFrame(data)
-        if not df.empty:
-            fig = px.bar(df, x="_id", y="orderCount", title="Orders by Customers")
-            st.plotly_chart(fig, use_container_width=True)
+    # Revenue by Customer
+    revenue_by_customer = fetch_data("revenue_by_customer", {"year": selected_year if selected_year != "All" else None})
+    if revenue_by_customer:
+        df = pd.DataFrame(revenue_by_customer)
+        fig = px.bar(df, x="_id", y="totalSales", title="Revenue by Customer", color="totalSales")
+        st.plotly_chart(fig, use_container_width=True)
 
-    elif menu == "Average Orders per Customer":
-        data = fetch_data("average_orders_by_customers")
-        avg_orders = data[0].get("averageOrdersPerCustomer", 0)
-        st.metric("🧑‍🤝‍🧑 Average Orders per Customer", avg_orders)
+    # Total Orders by Customer
+    total_orders_per_customer = fetch_data("total_orders_per_customer", {"year": selected_year if selected_year != "All" else None})
+    if total_orders_per_customer:
+        df = pd.DataFrame(total_orders_per_customer)
+        fig = px.bar(df, x="_id", y="totalOrders", title="Total Orders by Customer", color="totalOrders")
+        st.plotly_chart(fig, use_container_width=True)
 
-    elif menu == "Retention by Customers":
-        data = fetch_data("retention_by_customers")
-        df = pd.DataFrame(data)
-        if not df.empty:
-            fig = px.scatter(
-                df,
-                x="retentionPeriodDays",
-                y="orderCount",
-                size="orderCount",
-                title="Customer Retention",
-                labels={"retentionPeriodDays": "Retention Period (Days)", "orderCount": "Order Count"}
-            )
-            st.plotly_chart(fig, use_container_width=True)
+    # Quantity per Customer
+    quantity_per_customer = fetch_data("quantity_per_customer", {"year": selected_year if selected_year != "All" else None})
+    if quantity_per_customer:
+        df = pd.DataFrame(quantity_per_customer)
+        fig = px.bar(df, x="_id", y="totalQuantity", title="Quantity per Customer", color="totalQuantity")
+        st.plotly_chart(fig, use_container_width=True)
 
-    elif menu == "Quantity per Product":
-        data = fetch_data("quantity_per_products")
-        df = pd.DataFrame(data)
-        if not df.empty:
-            fig = px.bar(
-                df, x="_id", y="quantity_per_products",
-                title="Quantity Sold per Product"
-            )
-            st.plotly_chart(fig, use_container_width=True)
-
-    elif menu == "Total Orders per Product":
-        data = fetch_data("total_orders_per_products")
-        df = pd.DataFrame(data)
-        if not df.empty:
-            fig = px.bar(
-                df, x="_id", y="total_orders_per_products",
-                title="Total Orders per Product"
-            )
-            st.plotly_chart(fig, use_container_width=True)
-
-    elif menu == "Revenue by Product":
-        data = fetch_data("revenus_by_products")
-        df = pd.DataFrame(data)
-        if not df.empty:
-            fig = px.bar(
-                df, x="_id", y="totalRevenue",
-                title="Revenue by Product",
-                color="totalRevenue"
-            )
-            st.plotly_chart(fig, use_container_width=True)
+    # Retention by Customers
+    retention_by_customers = fetch_data("retention_by_customers", {"year": selected_year if selected_year != "All" else None})
+    if retention_by_customers:
+        df = pd.DataFrame(retention_by_customers)
+        fig = px.scatter(df, x="_id", y="retentionPeriodDays", title="Retention by Customers")
+        st.plotly_chart(fig, use_container_width=True)
