@@ -6,6 +6,14 @@ app = FastAPI()
 client = MongoClient("mongodb://localhost:27017/")
 db = client['ecommerce']
 
+@app.on_event("startup")
+async def create_indexes():
+    db.Customers.create_index("Customer ID")
+    db.Products.create_index("Products ID")
+    db.Location.create_index("Postal Code")
+    db.Orders.create_index("Order Date")
+    print("✅ Indexes created successfully")
+
 @app.get("/orders-with-details")
 def get_orders_with_details():
     pipeline = [
@@ -41,28 +49,7 @@ def get_orders_with_details():
 @app.get("/total_sales")
 def total_sales():
     pipeline = [
-        {
-            '$lookup': {
-                'from': 'Customers',
-                'localField': 'Customer ID',
-                'foreignField': 'Customer ID',
-                'as': 'CustomerDetails'
-            }
-        }, {
-            '$lookup': {
-                'from': 'Products',
-                'localField': 'Products ID',
-                'foreignField': 'Products ID',
-                'as': 'ProductsDetails'
-            }
-        }, {
-            '$lookup': {
-                'from': 'Location',
-                'localField': 'Postal Code',
-                'foreignField': 'Postal Code',
-                'as': 'LocationDetails'
-            }
-        }, {
+ {
             '$group': {
                 '_id': None,
                 'totalSales': {
@@ -78,28 +65,7 @@ def total_sales():
 @app.get("/total_profits")
 def total_profits():
     pipeline = [
-        {
-            '$lookup': {
-                'from': 'Customers',
-                'localField': 'Customer ID',
-                'foreignField': 'Customer ID',
-                'as': 'CustomerDetails'
-            }
-        }, {
-            '$lookup': {
-                'from': 'Products',
-                'localField': 'Products ID',
-                'foreignField': 'Products ID',
-                'as': 'ProductsDetails'
-            }
-        }, {
-            '$lookup': {
-                'from': 'Location',
-                'localField': 'Postal Code',
-                'foreignField': 'Postal Code',
-                'as': 'LocationDetails'
-            }
-        }, {
+ {
             '$group': {
                 '_id': None,
                 'totalProfit': {
@@ -115,28 +81,7 @@ def total_profits():
 @app.get("/total_orders")
 def total_orders():
     pipeline = [
-        {
-            '$lookup': {
-                'from': 'Customers',
-                'localField': 'Customer ID',
-                'foreignField': 'Customer ID',
-                'as': 'CustomerDetails'
-            }
-        }, {
-            '$lookup': {
-                'from': 'Products',
-                'localField': 'Products ID',
-                'foreignField': 'Products ID',
-                'as': 'ProductsDetails'
-            }
-        }, {
-            '$lookup': {
-                'from': 'Location',
-                'localField': 'Postal Code',
-                'foreignField': 'Postal Code',
-                'as': 'LocationDetails'
-            }
-        }, {
+{
             '$count': 'Order ID'
         }
     ]
@@ -147,28 +92,7 @@ def total_orders():
 @app.get("/average_sales")
 def average_sales():
     pipeline = [
-    {
-        '$lookup': {
-            'from': 'Customers',
-            'localField': 'Customer ID',
-            'foreignField': 'Customer ID',
-            'as': 'CustomerDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Products',
-            'localField': 'Products ID',
-            'foreignField': 'Products ID',
-            'as': 'ProductsDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Location',
-            'localField': 'Postal Code',
-            'foreignField': 'Postal Code',
-            'as': 'LocationDetails'
-        }
-    }, {
+{
         '$group': {
             '_id': None,
             'totalSales': {
@@ -196,28 +120,7 @@ def average_sales():
 @app.get("/total_quantity")
 def total_quantity():
     pipeline = [
-    {
-        '$lookup': {
-            'from': 'Customers',
-            'localField': 'Customer ID',
-            'foreignField': 'Customer ID',
-            'as': 'CustomerDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Products',
-            'localField': 'Products ID',
-            'foreignField': 'Products ID',
-            'as': 'ProductsDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Location',
-            'localField': 'Postal Code',
-            'foreignField': 'Postal Code',
-            'as': 'LocationDetails'
-        }
-    }, {
+{
         '$group': {
             '_id': None,
             'totalQuantity': {
@@ -244,28 +147,7 @@ def total_client():
 @app.get("/orders_by_customers")
 def orders_by_customers():
     pipeline = [
-    {
-        '$lookup': {
-            'from': 'Customers',
-            'localField': 'Customer ID',
-            'foreignField': 'Customer ID',
-            'as': 'CustomerDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Products',
-            'localField': 'Products ID',
-            'foreignField': 'Products ID',
-            'as': 'ProductsDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Location',
-            'localField': 'Postal Code',
-            'foreignField': 'Postal Code',
-            'as': 'LocationDetails'
-        }
-    }, {
+{
         '$group': {
             '_id': '$Customer ID',
             'orderCount': {
@@ -282,27 +164,6 @@ def orders_by_customers():
 def average_orders_by_customers():
     pipeline = [
     {
-        '$lookup': {
-            'from': 'Customers',
-            'localField': 'Customer ID',
-            'foreignField': 'Customer ID',
-            'as': 'CustomerDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Products',
-            'localField': 'Products ID',
-            'foreignField': 'Products ID',
-            'as': 'ProductsDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Location',
-            'localField': 'Postal Code',
-            'foreignField': 'Postal Code',
-            'as': 'LocationDetails'
-        }
-    }, {
         '$group': {
             '_id': '$Customer ID',
             'orderCount': {
@@ -325,28 +186,7 @@ def average_orders_by_customers():
 @app.get("/retention_by_customers")
 def retention_by_customers():
     pipeline = [
-    {
-        '$lookup': {
-            'from': 'Customers',
-            'localField': 'Customer ID',
-            'foreignField': 'Customer ID',
-            'as': 'CustomerDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Products',
-            'localField': 'Products ID',
-            'foreignField': 'Products ID',
-            'as': 'ProductsDetails'
-        }
-    }, {
-        '$lookup': {
-            'from': 'Location',
-            'localField': 'Postal Code',
-            'foreignField': 'Postal Code',
-            'as': 'LocationDetails'
-        }
-    }, {
+{
         '$group': {
             '_id': '$Customer ID',
             'firstOrderDate': {
@@ -383,6 +223,58 @@ def retention_by_customers():
         }
     }
 ]
+    result = list(db.Orders.aggregate(pipeline))
+    return result
+
+@app.get("/quantity_per_products")
+def quantity_per_products():
+    pipeline = [
+{
+        '$group': {
+            '_id': '$Product ID',
+            'quantity_per_products': {
+                '$sum': '$Quantity'
+            }
+        }
+    }
+]
+
+    result = list(db.Orders.aggregate(pipeline))
+    return result
+
+@app.get("/total_orders_per_products")
+def total_orders_per_products():
+    pipeline = [
+{
+        '$group': {
+            '_id': '$Product ID',
+            'total_orders_per_products': {
+                '$count': {}
+            }
+        }
+    }
+]
+
+    result = list(db.Orders.aggregate(pipeline))
+    return result
+
+@app.get("/revenus_by_products")
+def revenus_by_products():
+    pipeline = [
+{
+        '$group': {
+            '_id': '$Product ID',
+            'totalRevenue': {
+                '$sum': '$Sales'
+            }
+        }
+    }, {
+        '$sort': {
+            'totalRevenue': -1
+        }
+    }
+]
+
     result = list(db.Orders.aggregate(pipeline))
     return result
 
