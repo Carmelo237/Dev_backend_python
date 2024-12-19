@@ -49,7 +49,7 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 - ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) - [Python](https://www.python.org/) - Langage de programmation
 - ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white) - [Pandas](https://pandas.pydata.org/) - Manipulation de données
 - ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white) - [Plotly](https://plotly.com/) - Création de graphiques
-
+- ![Uvicorn](https://img.shields.io/badge/Uvicorn-FF9500?style=for-the-badge&logo=uvicorn&logoColor=white) - [Uvicorn](https://www.uvicorn.org/) - Serveur ASGI performant
 
 
 
@@ -108,22 +108,4 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 | Visualisation | Altair | Graphiques déclaratifs | • Syntaxe élégante<br>• Basé sur Vega-Lite<br>• Intégration facile |
 | HTTP Client | aiohttp | Appels async | • Async/await<br>• Performances<br>• WebSocket support |
 
-## Cas d'utilisation recommandés
 
-### Architecture Actuelle
-- Startups et projets moyens
-- Besoin de développement rapide
-- Équipe Python-centric
-- Data science et analytics
-
-### Stack Entreprise
-- Grandes entreprises
-- Applications critiques
-- Besoin de transactions
-- Équipes importantes
-
-### Stack Microservices
-- Architecture distribuée
-- Forte charge
-- Besoin de scalabilité
-- Services indépendants
