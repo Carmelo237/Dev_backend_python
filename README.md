@@ -133,11 +133,11 @@ pip install matplotlib.pyplot
 
 1. **Collecte des données**
 
-# Importation des CSV dans MongoDB
+# Importation de  bibliothèques et modules 
 ```python
-mongoimport --db ecommerce --collection customers --file Customers.csv
-mongoimport --db ecommerce --collection orders --file Orders.csv
-# etc...
+from fastapi import FastAPI
+from pymongo import MongoClient
+import uvicorn
 ```
 
 2. **Traitement Backend**
@@ -156,11 +156,6 @@ def get_orders_with_details():
 ```
 3. **Affichage Frontend**
    ( avec Streamlit)
-
-
-
-
-## Run Locally🏃
 
 
 ## Deployment🪄
