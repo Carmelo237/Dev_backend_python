@@ -133,7 +133,7 @@ pip install matplotlib.pyplot
 
 1. **Collecte des données**
 
-# Importation de  bibliothèques et modules 
+Importation de  bibliothèques et modules 
 ```python
 from fastapi import FastAPI
 from pymongo import MongoClient
