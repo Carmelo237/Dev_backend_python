@@ -111,13 +111,17 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 
 ###Description du projet
 
-⚠️ **Utilisation avancée (si vous utilisez git/github)**
+##Pré-requis
 
-### Intégrer les mises à jour du projet original
+⚠️ **Utilisation avancée (Git - Gestion des branches)**
 
-Cette étape n'est pas à effectuer à chaque fois mais quand un enseignant vous le demande. Elle va permettre de mettre à jour votre copie locale du projet à partir du dépôt `github` original.
+### Travailler avec des branches Git
 
-1. **Créer un lien nommé `upstream` vers le dépôt d'origine**
+Ces commandes permettent de créer, basculer sur une branche, ajouter des modifications, les valider et les pousser vers un dépôt distant.
+
+1. **Créer une nouvelle branche ou basculer sur une branche existante**
    ```bash
-   git remote add upstream https://github.com/uvsq-info/l1-python
+   git branch <nom-de-la-branche>
+   git checkout <nom-de-la-branche>
+
 
