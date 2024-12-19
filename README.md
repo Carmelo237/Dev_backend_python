@@ -118,3 +118,6 @@ Ces commandes permettent de créer, basculer sur une branche, ajouter des modifi
    ```bash
    git push origin <nom-de-la-branche>
 ## Installation⚙️
+  ```bash
+pip install pymongo
+pip install  pandas 
