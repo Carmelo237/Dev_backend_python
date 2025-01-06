@@ -12,33 +12,29 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
 
 ## Les KPI'S
 
-- [Métriques de Ventes](#métriques-de-ventes)
-  - [Total des ventes & Total des bénéfices](#Total-des-ventes-&-Total-des-bénéfices)
+- [Métrique des Ventes](#métrique-des-ventes)
+  - [Ventes totales](#ventes-totales)
+  - [Bénéfices totaux](#bénéfices-totaux)
   - [Nombre total de commandes](#nombre-total-de-commandes)
-  - [Panier moyen](#panier-moyen)
-  - [Nombre total de produits vendus](#nombre-total-de-produits-vendus)
-  
-- [Métriques Clients](#métriques-clients)
+  - [Quantité totale](#quantité-totale)
   - [Nombre total de clients](#nombre-total-de-clients)
-  - [Moyenne de commandes par client](#moyenne-de-commandes-par-client)
-  - [Temps moyen entre les commandes](#temps-moyen-entre-les-commandes)
-  - [Taux de rétention client](#taux-de-rétention-client)
+  - [Moyenne des commandes par client](#moyenne-des-commandes-par-client)
 
-- [Performance Produits](#performance-produits)
-  - [Revenus par produit](#revenus-par-produit)
-  - [Quantités vendues par produit](#quantités-vendues-par-produit)
-  - [Nombre de commandes par produit](#nombre-de-commandes-par-produit)
-  - [Quantité moyenne par commande](#quantité-moyenne-par-commande)
+- [Métriques Produits](#métriques-produits)
+  - [Chiffre d'affaires par catégorie](#chiffre-daffaires-par-catégorie)
+  - [Total des commandes par catégorie](#total-des-commandes-par-catégorie)
+  - [Quantité par catégorie](#quantité-par-catégorie)
 
-- [Analyses Temporelles](#analyses-temporelles)
-  - [Évolution des ventes dans le temps](#évolution-des-ventes-dans-le-temps)
-  - [Saisonnalité des ventes](#saisonnalité-des-ventes)
-  - [Jours/périodes de forte activité](#jourspériodes-de-forte-activité)
+- [Métrique Clients (Segment)](#métrique-clients-segment)
+  - [Chiffre d'affaires par client](#chiffre-daffaires-par-client)
+  - [Total des commandes par client](#total-des-commandes-par-client)
+  - [Quantité par client](#quantité-par-client)
+  - [Rétention par client](#rétention-par-client)
+  - [Chiffre d'affaires par segment](#chiffre-daffaires-par-segment)
+  - [Total des commandes par segment](#total-des-commandes-par-segment)
+  - [Catégorie par segment](#catégorie-par-segment)
 
-- [Métriques Géographiques](#métriques-géographiques)
-  - [Répartition des ventes par région](#répartition-des-ventes-par-région)
-  - [Zones les plus rentables](#zones-les-plus-rentables)
-  - [Analyse des distances de livraison](#analyse-des-distances-de-livraison)
+
 
 ## Construit avec
 
