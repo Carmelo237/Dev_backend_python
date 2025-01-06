@@ -20,7 +20,7 @@ Notre projet est porté sur une  analyse de données e-commerce notre but ici se
   - [Nombre total de clients](#nombre-total-de-clients)
   - [Moyenne des commandes par client](#moyenne-des-commandes-par-client)
 
-- [Métriques Produits](#métriques-produits)
+- [Métrique Produits](#métrique-produits)
   - [Chiffre d'affaires par catégorie](#chiffre-daffaires-par-catégorie)
   - [Total des commandes par catégorie](#total-des-commandes-par-catégorie)
   - [Quantité par catégorie](#quantité-par-catégorie)
