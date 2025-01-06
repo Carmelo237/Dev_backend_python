@@ -164,7 +164,7 @@ if __name__ == "__main__":
 
 ## Déploiement🪄
 ```python
-run app.py
+streamlit run app.py
 
 ```
 puis éxécuter le main
