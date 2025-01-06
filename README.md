@@ -152,6 +152,9 @@ def get_orders_with_details():
 ```
 3. **Affichage Frontend**
 ```python
+streamlit run app.py
+streamlit run main.py
+```
 
 
 
