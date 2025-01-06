@@ -155,22 +155,21 @@ def get_orders_with_details():
 ```
 3. **Affichage Frontend**
 ```python
-run app.py
-
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 ```
-puis éxécuter le main
-```python
-run main.py
 
-```
 
 
 
 ## Déploiement🪄
 ```python
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+run app.py
+
 ```
+puis éxécuter le main
+
+
 ## Visualisation📊
 
 
