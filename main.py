@@ -89,6 +89,60 @@ def total_client(year: int = Query(None)):
     result = list(db.Orders.aggregate(filter_by_year(pipeline, year)))
     return result
 
+@app.get("/ship_mode")
+def ship_mode(year: int = Query(None)):
+    pipeline = [
+    {
+        '$group': {
+            '_id': '$Ship Mode',
+            'totalOrders': {
+                '$sum': 1
+            }
+        }
+    }, {
+        '$sort': {
+            'totalOrders': 1
+        }
+    }
+]
+    result = list(db.Orders.aggregate(filter_by_year(pipeline, year)))
+    return result
+
+@app.get("/average_per_ship_mode")
+def average_per_ship_mode(year: int = Query(None)):
+    pipeline = [
+    {
+        '$project': {
+            'Ship Mode': 1,
+            'DaysDifference': {
+                '$dateDiff': {
+                    'startDate': '$Order Date',
+                    'endDate': '$Ship Date',
+                    'unit': 'day'
+                }
+            }
+        }
+    }, {
+        '$group': {
+            '_id': '$Ship Mode',
+            'AverageDaysDifference': {
+                '$avg': '$DaysDifference'
+            }
+        }
+    }, {
+        '$project': {
+            '_id': 1,
+            'AverageDaysDifference': {
+                '$round': [
+                    '$AverageDaysDifference', 1
+                ]
+            }
+        }
+    }
+]
+    result = list(db.Orders.aggregate(filter_by_year(pipeline, year)))
+    return result
+
 @app.get("/quantity_by_category")
 def quantity_by_category(year: int = Query(None)):
     pipeline = [
@@ -106,6 +160,58 @@ def quantity_by_category(year: int = Query(None)):
             '_id': '$ProductDetails.Category',
             'totalQuantity': {
                 '$sum': '$Quantity'
+            }
+        }
+    }
+]
+    result = list(db.Orders.aggregate(filter_by_year(pipeline, year)))
+    return result
+
+@app.get("/category_by_segment")
+def category_by_segment(year: int = Query(None)):
+    pipeline = [
+    {
+        '$lookup': {
+            'from': 'Products',
+            'localField': 'Product ID',
+            'foreignField': 'Product ID',
+            'as': 'ProductDetails'
+        }
+    }, {
+        '$unwind': '$ProductDetails'
+    }, {
+        '$group': {
+            '_id': {
+                'Segment': '$Segment',
+                'Category': '$ProductDetails.Category'
+            },
+            'TotalOrders': {
+                '$sum': 1
+            }
+        }
+    }, {
+        '$group': {
+            '_id': '$_id.Segment',
+            'TopCategory': {
+                '$first': '$_id.Category'
+            },
+            'TotalOrders': {
+                '$first': '$TotalOrders'
+            }
+        }
+    }
+]
+    result = list(db.Orders.aggregate(filter_by_year(pipeline, year)))
+    return result
+
+@app.get("/total_orders_by_segment")
+def total_orders_by_segment(year: int = Query(None)):
+    pipeline = [
+    {
+        '$group': {
+            '_id': '$Segment',
+            'TotalOrders': {
+                '$sum': 1
             }
         }
     }
