@@ -170,7 +170,4 @@ run app.py
 puis éxécuter le main
 
 
-## Visualisation📊
-
-
 
