@@ -151,7 +151,8 @@ def get_orders_with_details():
             }
 ```
 3. **Affichage Frontend**
-   ( avec Streamlit)
+```python
+
 
 
 ## Déploiement🪄
