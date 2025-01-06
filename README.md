@@ -134,6 +134,9 @@ Importation de  bibliothèques et modules
 from fastapi import FastAPI
 from pymongo import MongoClient
 import uvicorn
+import requests
+import plotly.express
+import pandas 
 ```
 
 2. **Traitement Backend**
@@ -153,6 +156,11 @@ def get_orders_with_details():
 3. **Affichage Frontend**
 ```python
 run app.py
+
+```
+puis éxécuter le main
+```python
+run main.py
 
 ```
 
